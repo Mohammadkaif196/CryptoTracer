@@ -1,0 +1,86 @@
+.slider {
+    width: 100%;
+    height: 400px; /* Reduce slider height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+.slider .list {
+    display: flex;
+    width: fit-content;
+    height: 20px;
+    justify-content: space-around; /* Even spacing */
+    position: relative;
+    animation: autoRun 50s linear infinite; /* Faster movement */
+}
+
+.slider .list .item {
+    width: 50px;  /* Smaller box */
+   
+    margin-right: 5rem; /* Reduce gap between items */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    background: rgba(255, 255, 255, 0.1); /* Optional: Light background */
+}
+
+.slider .list .item img {
+    width: 80%;  /* Smaller images inside */
+    height: 80%;
+    object-fit: contain;
+}
+
+/* Animation */
+@keyframes autoRun {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+/* Pause animation on hover */
+.slider:hover .list {
+    animation-play-state: paused;
+}
+
+/* 🎯 Mobile Optimization */
+@media (max-width: 800px) { 
+    .slider {
+        height: 250px;
+    }
+
+    .slider .list .item {
+        width: 30px; 
+        height: 30px;
+        margin-right: 3rem;
+    }
+
+    .slider .list .item img {
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media (max-width: 480px) { /* Mobile */
+    .slider {
+        height: 200px;
+    }
+
+    .slider .list .item {
+        width: 20px; /* Smallest size */
+        height: 20px;
+        margin-right: 1.5rem;
+    }
+
+    .slider .list .item img {
+        width: 60%;
+        height: 60%;
+    }
+}

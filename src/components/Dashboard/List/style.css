@@ -1,0 +1,90 @@
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.3rem; /* Further reduced gap */
+    padding: 0.3rem;
+}
+
+.chip-up, .chip-down {
+    margin: 0.2rem; /* Smaller margin */
+    font-size: 0.7rem; /* Reduced text size */
+    padding: 0.2rem 0.4rem; /* Smaller padding */
+}
+
+.coin-logo {
+    width: 3.5rem; 
+    height: 3.5rem;
+    object-fit: cover;
+}
+
+.table-row:hover {
+    background-color: var(--darkgray);
+}
+
+.td-center-price {
+    text-align: center;
+    font-size: 0.8rem; /* Smaller font */
+}
+
+.td-right {
+    text-align: right;
+    margin-right: 0.3rem;
+    font-size: 0.8rem; /* Adjusted font */
+}
+
+.market-mobile {
+    display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+    .td-icon {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .td-total-volume {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .market-mobile {
+        display: block;
+    }
+    .market-normal {
+        display: none;
+    }
+    
+    .td-image {
+        width: 1.3rem; 
+        height: 1.3rem;
+    }
+
+    .td-center-price, .td-right {
+        font-size: 0.7rem; /* Smaller text */
+    }
+
+    .table-row {
+        gap: 0.2rem; /* Minimal spacing */
+        padding: 0.2rem;
+    }
+}
+
+.save {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--green); /* Thinner border */
+    border-radius: 50%;
+    color: var(--green);
+    height: 1rem;
+    width: 1rem;
+    font-size: 0.6rem;
+}
+
+.save-red {
+    border: 1px solid var(--red);
+    color: var(--red);
+}

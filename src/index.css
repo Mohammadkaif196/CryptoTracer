@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --white: #fff;
+  --black:#111;
+  /* --blue: #3a80e9;   */
+  --blue: #7028ad;  
+  --grey:#888;
+  --darkgray:#1b1b1b;
+  --green:#61c96f;
+  --red:#f94141;    
+}
+html{
+  scroll-behavior: smooth;
+}
+body {
+  margin:0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--black);
+  color:var(--white);
+  font-family: "Inter", serif;
+}
+/* when we select any text for that background color  */
+::selection{
+  background-color: var(--blue);
+  color: var(--white);
+}
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+}
+
+a{
+  color: var(--white) !important;
+  text-decoration: none !important;
+}
+
+.top-wrapper{
+  display: block;
+  background-color: var(--darkgray);
+  margin: 1.3rem auto;
+  padding: 0rem 0.8rem;
+  width: 90%;
+  border-radius: 0.7rem;
+}

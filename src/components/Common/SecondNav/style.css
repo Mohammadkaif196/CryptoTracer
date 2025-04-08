@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+  position: relative;
+  height: 40px;
+  white-space: nowrap;
+}
+
+.glowing-text {
+  display: inline-block;
+  font-size: 17px;
+  font-weight: bold;
+  color: var(--white);
+  text-shadow: 0 0 10px #7028ad, 0 0 20px #7028ad, 0 0 30px #7028ad;
+  position: absolute;
+  white-space: nowrap;
+  animation: moveText 20s linear infinite;
+}
+
+@keyframes moveText {
+  from {
+    transform: translateX(1250px);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

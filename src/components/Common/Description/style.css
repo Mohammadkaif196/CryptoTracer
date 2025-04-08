@@ -1,0 +1,14 @@
+.coin-heading{
+    padding: 0.9rem;
+    margin: 1rem auto;
+}
+.coin-details{
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.coin-details a{
+    text-decoration: underline !important;
+}
+.coin-details a:hover{
+ color:var(--blue) !important;
+}

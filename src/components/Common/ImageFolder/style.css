@@ -1,0 +1,41 @@
+.mainImage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Adds spacing between images */
+    padding: 10px;
+    border-radius: 10%; 
+    background-color: blue;
+    background: transparent;
+    
+}
+.mainImage-container img{
+    width: 160px;
+    height: 160px;
+}
+.mainImage-container h3{
+    font-size: 18px;
+}
+/* .image-container {
+    width: 200px;
+    height: 200px;
+    padding: 8px;
+    object-fit: contain; 
+} */
+
+h3 {
+    font-size: 5px;
+    text-align: center;
+    margin-top: 8px;
+}
+@media (max-width: 800px)  {
+    h3{
+        font-size:8px ;
+    }
+    .mainImage-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+}

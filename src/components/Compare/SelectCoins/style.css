@@ -1,0 +1,7 @@
+.compare-list{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin: 1.2rem;
+}

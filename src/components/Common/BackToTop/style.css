@@ -1,0 +1,23 @@
+.back-to-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     position: fixed;
+     bottom: 1.2rem;
+     right: 2rem;
+     width: 3rem;
+     height: 3rem;
+     border: 2px solid var(--blue);
+     border-radius: 50%;
+     cursor: pointer;
+}
+.back-to-top:hover{
+    border: 0.25rem double var(--blue);
+    border-radius: 50%;
+}
+.arrow{
+    color:var(--blue);
+}
+.arrow:hover{
+    color: var(--white);
+}
