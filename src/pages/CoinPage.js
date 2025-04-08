@@ -1,6 +1,5 @@
 import React, { useEffect,useState } from 'react'
 import { useParams } from 'react-router-dom'
-import axios from 'axios';
 import Header from "../components/Common/Header"
 import LoaderComponent from '../components/Common/Loader';
 import { coinObjectSetting } from '../functions/coinObjectSetting';
@@ -9,7 +8,6 @@ import SummaryComponent from '../components/Common/Description';
 import { getCoinData } from '../functions/getCoinData';
 import {getPriceData} from "../functions/getPricesOfCoin"
 import LineChart from '../components/Coin/Charts';
-import { gettingDate } from '../functions/ConvertDate';
 import SelectComponent from "../components/Coin/Select"
 import { getChartData } from '../functions/gettingChartData';
 import PriceTypeChange from "../components/Coin/Toggle";

@@ -4,7 +4,7 @@ import HomePage from "./pages/Home";
 import DashboardPage from "./pages/Dashboard";
 import CoinPage from "./pages/CoinPage"
 import ComparePage from "./pages/ComparePage";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import WatchPage from "./pages/WatchPage";
 function App() {
   return (

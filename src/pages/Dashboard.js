@@ -4,10 +4,8 @@ import TabComponent from "../components/Dashboard/Tabs";
 import axios from "axios";
 import Search from "../components/Dashboard/Search";
 import PaginationComponent from "../components/Dashboard/Pagination";
-import CircularProgress from "../components/Common/Loader";
 import LoaderComponent from "../components/Common/Loader";
 import BackToTopComponent from "../components/Common/BackToTop"
-import SkeletonColor from "../components/Common/Skeleton";
 import MovingNav from "../components/Common/SecondNav";
 function DashboardPage() {
   const [coins, setCoins] = useState([]);

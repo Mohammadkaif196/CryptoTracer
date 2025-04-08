@@ -22,12 +22,12 @@ function Footer() {
  
 				<div>
 					<HomeIcon/>
-					<p><span>Pedda masid bazar Vinukonda</span> AndhraPradesh, India</p>
+					<p><span>Vinukonda</span> AndhraPradesh, India</p>
 				</div>
  
 				<div>
         <LocalPhoneIcon/>
-					<p>+91 7671009706</p>
+					<p>+91 1234567892</p>
 				</div>
  
 				<div>

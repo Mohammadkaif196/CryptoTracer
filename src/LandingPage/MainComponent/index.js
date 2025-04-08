@@ -2,12 +2,9 @@ import React ,{useState,useEffect,useRef}from 'react'
 import {Link} from "react-router-dom"
 import "./style.css"
 import Button from '../../components/Common/Button';
-import iphone from "../../assets/iphone.png";
-import gradient from "../../assets/gradient.png";
 import { motion } from "framer-motion"
-import { duration } from '@mui/material';
 import { Card, CardContent, IconButton } from "@mui/material";
-import { Share, Download, WhatsApp, Instagram, Email, Close } from "@mui/icons-material";
+import { WhatsApp, Instagram, Email, Close } from "@mui/icons-material";
 import usdc from "../../components/images/usdc.png";
 import ethereum from "../../components/images/ethereum.png";
 import xrp from "../../components/images/xrp.png";

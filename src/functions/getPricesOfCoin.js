@@ -4,9 +4,9 @@ export const getPriceData=(id,days,Type)=>{
     .then((res) => {
       if (res.data) {
         console.log("Prices>>>", res.data);
-        if (Type == "market_caps") {
+        if (Type === "market_caps") {
           return res.data.market_caps;
-        } else if (Type == "total_volumes") {
+        } else if (Type === "total_volumes") {
           return res.data.total_volumes;
         } else {
           return res.data.prices;
