@@ -16,7 +16,6 @@ A modern, responsive cryptocurrency dashboard and comparison app built with Reac
 
 ## 🖼️ Screenshots
 
-> **Tip:** Add your own UI screenshots to the `public/` folder (e.g., `public/screenshot1.png`) and reference them below for a visual showcase.
 
 | Home | Dashboard| Compare Page  |
 |-----------|-------------|-------------|
