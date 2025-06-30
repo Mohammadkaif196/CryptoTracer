@@ -18,9 +18,10 @@ A modern, responsive cryptocurrency dashboard and comparison app built with Reac
 
 > **Tip:** Add your own UI screenshots to the `public/` folder (e.g., `public/screenshot1.png`) and reference them below for a visual showcase.
 
-| Dashboard | Compare Page | Mobile View |
+| Home | Dashboard| Compare Page  |
 |-----------|-------------|-------------|
-| ![Dashboard](src/assets/iphone.png) | ![Compare](src/assets/gradient.png) | ![Mobile](src/assets/iphone.png) |
+| ![Home](src/images/home.png) | ![Dashboard](src/images/dashboardPage.png) | ![ComparePage1](src/images/comparePage1.png) ![comparePage2](src/images/comparePage2.png) | ![CoinPage](src/images/CoinPage.png)|
+
 
 ---
 
@@ -60,7 +61,7 @@ A modern, responsive cryptocurrency dashboard and comparison app built with Reac
 
 ---
 
-## 🙏 Credits
+## Resources
 - [CoinGecko API](https://www.coingecko.com/en/api) for crypto data
 - [Chart.js](https://www.chartjs.org/) for charts
 - [react-toastify](https://fkhadra.github.io/react-toastify/) for notifications
