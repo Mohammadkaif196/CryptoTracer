@@ -22,10 +22,6 @@ A modern, responsive cryptocurrency dashboard and comparison app built with Reac
 |-----------|-------------|-------------|
 | ![Dashboard](src/assets/iphone.png) | ![Compare](src/assets/gradient.png) | ![Mobile](src/assets/iphone.png) |
 
-> Coin icons used in the app:
->
-> ![Bitcoin](src/components/images/bitcoin.png) ![Ethereum](src/components/images/ethereum.png) ![Tether](src/components/images/tether.png) ![USDC](src/components/images/usdc.png) ![XRP](src/components/images/xrp.png)
-
 ---
 
 ## 🛠️ Technologies Used
