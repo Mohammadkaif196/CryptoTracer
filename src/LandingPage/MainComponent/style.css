@@ -68,7 +68,8 @@
 /* Hexagon Container */
 .hexagon-container {
     position: relative;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     height: 400px;
     margin-right: 50px;
     background-color: #0d1117;
@@ -92,14 +93,11 @@
     border-radius: 50%;
     background: #fff;
     border: 2px solid #ffcc00;
+    box-shadow: 0 0 10px 2px #3a80e9;
+    transition: all 0.2s;
+    cursor: pointer;
+    z-index: 1;
 }
-
-/* Hexagon Positions */
-.pos-0 { top: 40px; left: 170px; }
-.pos-1 { top: 140px; left: 290px; }
-.pos-2 { top: 280px; left: 240px; }
-.pos-3 { top: 280px; left: 100px; }
-.pos-4 { top: 140px; left: 50px; }
 
 /* Tablet View */
 @media screen and (max-width: 1250px) {
@@ -186,23 +184,13 @@
 
     /* Smaller Hexagon Layout */
     .hexagon-container {
-        width: 250px;
-        height: 350px;
-        margin: 25px;
+        max-width: 250px;
+        height: 250px;
     }
 
     .hexagon-image {
-        width:45px;  
-        height: 45px;
+        width: 40px;
+        height: 40px;
     }
-
-    /* Adjusted Hexagon Positions */
-    .pos-0 { top: 10%; left: 45%;  }
-    .pos-1 { top: 35%; left: 75%;}
-    .pos-2 { top: 65%; left: 65%; }
-    .pos-3 { top: 65%; left: 18%; }
-    .pos-4 { top: 35%; left: 10%; }
-
-    
 }
 

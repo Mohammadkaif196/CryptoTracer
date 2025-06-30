@@ -1,0 +1,583 @@
+/* ComparePage Creative Styling */
+
+.compare-main-list {
+  min-height: 100vh;
+  background: var(--darkgray);
+  padding-bottom: 2rem;
+}
+
+/* Creative Header */
+.compare-header {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.compare-title h1 {
+  color: var(--white);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.compare-title p {
+  color: var(--gray);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.compare-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.stat-card {
+  background: rgba(58, 128, 233, 0.1);
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(58, 128, 233, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--gray);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Loading Container */
+.loading-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.loading-text {
+  color: var(--white);
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* Error Container */
+.error-container {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  text-align: center;
+  animation: shake 0.5s ease-in-out;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.retry-button {
+  background: var(--blue);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* No Data Container */
+.no-data-container {
+  text-align: center;
+  padding: 4rem 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.no-data-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.no-data-message {
+  color: var(--white);
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Compare Content */
+.compare-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.compare-content.animating {
+  animation: pulse 0.5s ease-in-out;
+}
+
+/* Selector Section */
+.selector-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideInUp 0.8s ease-out;
+}
+
+/* Coin Cards Container */
+.coin-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  animation: slideInUp 0.8s ease-out 0.2s both;
+}
+
+.coin-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1rem 3rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.coin-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--blue);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.coin-card-1{
+  width: 800px;
+  margin-bottom: 1.5rem;
+  transform: translateY(-20px);
+}
+.coin-card-2{
+  width: 800px;
+  margin-top: 1.5rem;
+  transform: translateY(20px);
+}
+.coin-card:hover::before {
+  opacity: 1;
+}
+
+.coin-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.coin-card-1::before {
+  background: var(--blue);
+}
+
+.coin-card-2::before {
+  background: var(--green);
+}
+
+.coin-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.coin-rank {
+  background: rgba(58, 128, 233, 0.2);
+  color: var(--white);
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.coin-trend {
+  font-size: 1.2rem;
+  animation: bounce 2s infinite;
+}
+
+/* VS Indicator */
+.vs-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
+  flex-shrink: 0;
+}
+
+.vs-circle {
+  background: var(--blue);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s infinite;
+}
+
+/* Chart Section */
+.chart-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideInUp 0.8s ease-out 0.4s both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.chart-header h3 {
+  color: var(--white);
+  font-size: 1.8rem;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.chart-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.chart-container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 1000px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+/* Summary Section */
+.summary-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  animation: slideInUp 0.8s ease-out 0.6s both;
+}
+
+.summary-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .coin-cards-container {
+    gap: 0.5rem;
+  }
+  .coin-card, .coin-card-1, .coin-card-2 {
+    width: 95vw;
+    max-width: 98vw;
+    padding: 1rem 0.5rem;
+  }
+  
+  .vs-indicator {
+    order: -1;
+    margin-bottom: 0.5rem;
+  }
+  
+  .summary-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .coin-card {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .compare-header {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .compare-title h1 {
+    font-size: 2rem;
+  }
+  
+  .compare-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .compare-content {
+    padding: 0 1rem;
+  }
+  
+  .selector-section {
+    padding: 1.5rem;
+  }
+  
+  .chart-section {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+    max-width: 100%;
+  }
+  
+  .chart-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .chart-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .chart-container {
+    padding: 1rem;
+    min-height: 300px;
+  }
+  
+  .coin-cards-container {
+    gap: 0.6rem;
+  }
+  
+  .coin-card {
+    padding: 0.7rem;
+  }
+  
+  .coin-card-header {
+    margin-bottom: 0.4rem;
+  }
+  
+  .coin-rank {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+  }
+  
+  .coin-trend {
+    font-size: 1rem;
+  }
+  
+  .vs-circle {
+    width: 45px;
+    height: 45px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .coin-cards-container {
+    gap: 0.25rem;
+  }
+  .coin-card, .coin-card-1, .coin-card-2 {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0.5rem 0.2rem;
+    border-radius: 10px;
+    margin: 0;
+    transform: none;
+  }
+  .vs-circle {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  .vs-indicator {
+    margin: 0.25rem 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .compare-title h1 {
+    font-size: 1.5rem;
+  }
+  
+  .compare-title p {
+    font-size: 1rem;
+  }
+  
+  .stat-card {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .vs-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8rem;
+  }
+  
+  .coin-cards-container {
+    gap: 0.5rem;
+  }
+  
+  .coin-card {
+    padding: 0.6rem;
+  }
+  
+  .coin-card-header {
+    margin-bottom: 0.3rem;
+  }
+  
+  .coin-rank {
+    padding: 0.1rem 0.4rem;
+    font-size: 0.6rem;
+  }
+  
+  .coin-trend {
+    font-size: 0.9rem;
+  }
+} 

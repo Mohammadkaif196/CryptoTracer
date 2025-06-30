@@ -1,6 +1,25 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-// import { Chart as ChartJS } from "chart.js/auto"; 
+import {
+  Chart as ChartJS,
+  LinearScale,
+  CategoryScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+ChartJS.register(
+  LinearScale,
+  CategoryScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 function LineChart({ chartData, multiAxis }) {
   const options = {

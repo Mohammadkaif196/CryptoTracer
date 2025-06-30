@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Crypto Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive cryptocurrency dashboard and comparison app built with React. Track, compare, and analyze top cryptocurrencies with real-time data, beautiful charts, and robust error handling.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
+- **Live Market Dashboard:** View top cryptocurrencies, market cap, and 24h volume.
+- **Coin Details:** See price, volume, and market cap for each coin.
+- **Compare Coins:** Side-by-side comparison with price charts and stats.
+- **Watchlist:** Save your favorite coins for quick access.
+- **Responsive Design:** Works beautifully on desktop, tablet, and mobile.
+- **Caching & Error Handling:** Smart session caching and user-friendly error messages for API rate limits or network issues.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🖼️ Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> **Tip:** Add your own UI screenshots to the `public/` folder (e.g., `public/screenshot1.png`) and reference them below for a visual showcase.
 
-### `npm test`
+| Dashboard | Compare Page | Mobile View |
+|-----------|-------------|-------------|
+| ![Dashboard](src/assets/iphone.png) | ![Compare](src/assets/gradient.png) | ![Mobile](src/assets/iphone.png) |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> Coin icons used in the app:
+>
+> ![Bitcoin](src/components/images/bitcoin.png) ![Ethereum](src/components/images/ethereum.png) ![Tether](src/components/images/tether.png) ![USDC](src/components/images/usdc.png) ![XRP](src/components/images/xrp.png)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Technologies Used
+- React (functional components, hooks)
+- CSS (custom, responsive, modern UI)
+- Axios (API requests)
+- Chart.js (price charts)
+- react-toastify (notifications)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚡ Caching & Error Handling
+- **Session Storage Caching:** All API data is cached for 5 minutes. If the API is rate-limited or fails, cached data (up to 24h old) is shown with a warning.
+- **User Notifications:** Users are notified via toast if they are seeing cached data due to an error.
+- **Graceful Fallbacks:** Friendly error messages and retry options throughout the app.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧑‍💻 Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/cryptoproject.git
+   cd cryptoproject
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
+4. **Open in your browser:**
+   Visit [http://localhost:3000](http://localhost:3000)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🙏 Credits
+- [CoinGecko API](https://www.coingecko.com/en/api) for crypto data
+- [Chart.js](https://www.chartjs.org/) for charts
+- [react-toastify](https://fkhadra.github.io/react-toastify/) for notifications
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 👤 Author
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Shaik Mohammad Kaif**  
+[GitHub](https://github.com/Mohammadkaif196)  
+Email: kaif.presi@gmail.com
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

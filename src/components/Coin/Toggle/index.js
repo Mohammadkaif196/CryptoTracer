@@ -3,14 +3,23 @@ import React from 'react';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import "./style.css"
-export default function PriceTypeChange({Type,handleChangepriceType}) {
+
+export default function PriceTypeChange({Type, handleChangepriceType}) {
+  console.log('PriceTypeChange component:', { Type, handleChangepriceType });
+
+  const handleChange = (event, newValue) => {
+    console.log('Toggle button clicked:', { event, newValue });
+    if (handleChangepriceType) {
+      handleChangepriceType(event, newValue);
+    }
+  };
 
   return (
     <div className='toggle-list'>
     <ToggleButtonGroup
       value={Type}
       exclusive
-      onChange={handleChangepriceType}
+      onChange={handleChange}
       sx={{
         "&.Mui-selected": {
           color: "var(--blue) !important",

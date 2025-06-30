@@ -6,32 +6,54 @@ import ImageList from "../Common/ImageFolder";
 
 function Carousal() {
   const [coin, setCoin] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getCoinsData();
   }, []);
 
   const getCoinsData = async () => {
-    const details = await getCoins();
-    console.log(details);
-    if (details) {
-      coinImageData(details, setCoin);
+    try {
+      const details = await getCoins();
+      if (details) {
+        coinImageData(details, setCoin);
+        setError(null);
+      } else {
+        setError("Failed to load coin data. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error in getCoinsData:", error);
+      setError("Failed to load coin data. Please check your connection.");
     }
   };
 
+  // Duplicate the coin list for seamless infinite scroll
+  const displayCoins = [...coin, ...coin];
+
+  if (error) {
+    return (
+      <div className="slider">
+        <div style={{ 
+          textAlign: 'center', 
+          color: '#fff', 
+          padding: '2rem',
+          fontSize: '1.1rem'
+        }}>
+          {error}
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div
-      className="slider"
-      style={{
-        "--width": "100px",
-        "--height": "50px",
-        "--quantity": coin.length || 10,
-      }}
-    >
+    <div className="slider">
       <div className="list">
-        {coin.map((item, index) => (
+        {displayCoins.map((item, index) => (
           <div className="item" key={index}>
-            <ImageList coin={item} />
+            <div className="coin-img-wrapper">
+              <ImageList coin={item} />
+              <span className="coin-name">{item.name}</span>
+            </div>
           </div>
         ))}
       </div>

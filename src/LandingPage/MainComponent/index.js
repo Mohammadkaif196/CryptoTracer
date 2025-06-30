@@ -12,15 +12,100 @@ import bitcoin from "../../components/images/bitcoin.png";
 import tether from "../../components/images/tether.png";
 function MainComponent() {
   const canvasRef = useRef(null);
-  const positions = [
-    { x: 200, y: 50 },
-    { x: 300, y: 150 },
-    { x: 250, y: 300 },
-    { x: 150, y: 300 },
-    { x: 100, y: 150 },
-  ];
+  const [hoveredCoin, setHoveredCoin] = useState(null);
+  const [angle, setAngle] = useState(0);
+  const [dimensions, setDimensions] = useState({ width: 400, height: 400 });
   const [showPopup, setShowPopup] = useState(false);
   const websiteUrl = "https://example.com";
+
+  // Responsive canvas size
+  useEffect(() => {
+    function handleResize() {
+      const size = Math.min(window.innerWidth * 0.8, 400);
+      setDimensions({ width: size, height: size });
+    }
+    window.addEventListener('resize', handleResize);
+    handleResize();
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Coin images
+  const coins = [
+    { src: bitcoin, name: 'bitcoin' },
+    { src: ethereum, name: 'ethereum' },
+    { src: tether, name: 'tether' },
+    { src: xrp, name: 'xrp' },
+    { src: usdc, name: 'usdc' },
+  ];
+
+  // Calculate positions in a circle
+  const getPositions = (angleOffset = 0) => {
+    const { width, height } = dimensions;
+    const radius = width / 2.5;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    return coins.map((_, i) => {
+      const theta = (2 * Math.PI * i) / coins.length + angleOffset;
+      return {
+        x: centerX + radius * Math.cos(theta),
+        y: centerY + radius * Math.sin(theta),
+      };
+    });
+  };
+
+  // Animate lines and coins
+  useEffect(() => {
+    let animationFrame;
+    let lastTimestamp = null;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    canvas.width = dimensions.width;
+    canvas.height = dimensions.height;
+
+    function draw(currentAngle) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const positions = getPositions(currentAngle);
+      // Draw lines
+      for (let i = 0; i < positions.length; i++) {
+        const from = positions[i];
+        const to = positions[(i + 1) % positions.length];
+        ctx.save();
+        ctx.beginPath();
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+        // Gradient line
+        const grad = ctx.createLinearGradient(from.x, from.y, to.x, to.y);
+        grad.addColorStop(0, hoveredCoin === i || hoveredCoin === (i + 1) % positions.length ? '#ffcc00' : '#7028ad');
+        grad.addColorStop(1, hoveredCoin === i || hoveredCoin === (i + 1) % positions.length ? '#fff700' : '#3a80e9');
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = hoveredCoin === i || hoveredCoin === (i + 1) % positions.length ? 6 : 4;
+        ctx.shadowColor = hoveredCoin === i || hoveredCoin === (i + 1) % positions.length ? '#fff700' : 'blue';
+        ctx.shadowBlur = hoveredCoin === i || hoveredCoin === (i + 1) % positions.length ? 15 : 8;
+        ctx.setLineDash([5, 5]);
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+
+    function animate(ts) {
+      if (!lastTimestamp) lastTimestamp = ts;
+      const delta = ts - lastTimestamp;
+      lastTimestamp = ts;
+      // Rotate coins
+      setAngle((prev) => {
+        const newAngle = prev + 0.002 * delta;
+        draw(newAngle);
+        return newAngle;
+      });
+      animationFrame = requestAnimationFrame(animate);
+    }
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+    // eslint-disable-next-line
+  }, [dimensions, hoveredCoin]);
+
+  // Coin positions for rendering
+  const positions = getPositions(angle);
 
   const handleShare = (platform) => {
     let shareUrl = "";
@@ -39,40 +124,7 @@ function MainComponent() {
     }
     window.open(shareUrl, "_blank");
   };
-  // for rotation images
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    canvas.width = 400;
-    canvas.height = 400;
-    ctx.strokeStyle = "#7028ad";
-    ctx.lineWidth = 4;
-    ctx.shadowColor = "blue";
-    ctx.shadowBlur = 5;
-    ctx.setLineDash([5, 5]); // Dotted line
 
-    function drawLines() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      let index = 0;
-      
-      function drawNextLine() {
-        if (index >= positions.length) {
-          setTimeout(drawLines, 1000); // Restart after a delay
-          return;
-        }
-        ctx.beginPath();
-        ctx.moveTo(positions[index % positions.length].x, positions[index % positions.length].y);
-        ctx.lineTo(positions[(index + 1) % positions.length].x, positions[(index + 1) % positions.length].y);
-        ctx.stroke();
-        index++;
-        setTimeout(drawNextLine, 1000); // Slower animation
-      }
-      drawNextLine();
-    }
-    drawLines();
-  }, []);
- 
-  
   return (
     <div className='flex-info'>
         <div className='left-component'>
@@ -118,19 +170,36 @@ function MainComponent() {
       {/* end here */}
             </motion.div>
         </div>
-        <div className='hexagon-container'> 
-         <canvas ref={canvasRef} className="hexagon-canvas"></canvas>
-        {[bitcoin, ethereum, tether, xrp,usdc ].map((imgSrc, index) => (
-         <motion.img
-         key={index}
-         src={imgSrc}
-         alt={`crypto-${index}`}
-         className={`hexagon-image pos-${index}`}
-         initial={{ opacity: 1, scale: 1 }}
-         animate={{ y: [0, -10, 0] }} // Bouncing effect
-         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-       />
-        ))}
+        <div className='hexagon-container' style={{ width: dimensions.width, height: dimensions.height }}> 
+         <canvas ref={canvasRef} className="hexagon-canvas" style={{ width: dimensions.width, height: dimensions.height }}></canvas>
+        {coins.map((coin, index) => {
+          const pos = positions[index];
+          return (
+            <motion.img
+              key={index}
+              src={coin.src}
+              alt={`crypto-${index}`}
+              className={`hexagon-image`}
+              style={{
+                left: pos.x - 30, // center the image
+                top: pos.y - 30,
+                zIndex: hoveredCoin === index ? 2 : 1,
+                boxShadow: hoveredCoin === index ? '0 0 30px 10px #fff700' : '0 0 10px 2px #3a80e9',
+                border: hoveredCoin === index ? '3px solid #fff700' : '2px solid #ffcc00',
+                transition: 'all 0.2s',
+                width: hoveredCoin === index ? 70 : 60,
+                height: hoveredCoin === index ? 70 : 60,
+                cursor: 'pointer',
+                position: 'absolute',
+              }}
+              initial={{ opacity: 1, scale: 1 }}
+              animate={{ y: [0, -10, 0] }} // Bouncing effect
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              onMouseEnter={() => setHoveredCoin(index)}
+              onMouseLeave={() => setHoveredCoin(null)}
+            />
+          );
+        })}
 
         </div>
     </div>

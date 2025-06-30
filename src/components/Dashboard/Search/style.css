@@ -1,26 +1,121 @@
-.search-flex{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 3rem;
-    width: 80%;
-    background-color: var(--darkgray);
-    color: var(--grey);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top:1rem ;
-    margin-bottom:1rem ;
-    border-radius: 3rem;
+.search-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 2rem;
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: var(--gray);
+  margin: 0 auto;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.search-flex input{
- background-color: var(--darkgray);
-   width: 100%;
-   border: none;
-   color: var(--grey);
-   font-size: 1.2rem;
-   font-family: "Inter";
+
+.search-flex::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(58, 128, 233, 0.1), transparent);
+  transition: left 0.5s ease;
 }
-.search-flex input:focus{
-    outline: none;
+
+.search-flex:focus-within::before {
+  left: 100%;
+}
+
+.search-flex:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(58, 128, 233, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.search-flex svg {
+  font-size: 1.5rem;
+  color: var(--gray);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.search-flex:focus-within svg {
+  color: var(--blue);
+  transform: scale(1.1);
+}
+
+.search-flex input {
+  background: transparent;
+  width: 100%;
+  border: none;
+  color: var(--white);
+  font-size: 1.1rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-flex input::placeholder {
+  color: var(--gray);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.search-flex:focus-within input::placeholder {
+  opacity: 0.5;
+  transform: translateX(5px);
+}
+
+.search-flex input:focus {
+  outline: none;
+}
+
+/* Animation for search icon */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-flex {
+    padding: 1rem 1.5rem;
+    max-width: 90%;
+    border-radius: 25px;
+  }
+  
+  .search-flex input {
+    font-size: 1rem;
+  }
+  
+  .search-flex svg {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-flex {
+    padding: 0.8rem 1.2rem;
+    max-width: 95%;
+  }
+  
+  .search-flex input {
+    font-size: 0.9rem;
+  }
+  
+  .search-flex svg {
+    font-size: 1.2rem;
+  }
 }
