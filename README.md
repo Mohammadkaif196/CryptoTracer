@@ -45,8 +45,8 @@ A modern, responsive cryptocurrency dashboard and comparison app built with Reac
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/cryptoproject.git
-   cd cryptoproject
+   git clone https://github.com/Mohammadkaif196/CryptoTracer
+   cd CryptoTracer
    ```
 2. **Install dependencies:**
    ```bash
